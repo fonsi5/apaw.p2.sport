@@ -8,7 +8,7 @@ public class SportResource {
     // POST **/sport   body="sportName"
     public void createSport(String SportName) throws InvalidSportFieldException {
         this.validateField(SportName);
-        //new SportController().createSport(SportName);
+        new SportController().createSport(SportName);
     }    
 
     private void validateField(String SportName) throws InvalidSportFieldException {

@@ -1,5 +1,7 @@
 package es.upm.miw.apiArchitectureSport;
 
+import es.upm.miw.apiArchitectureSport.daos.DaoFactory;
+import es.upm.miw.apiArchitectureSport.daos.memory.DaoFactoryMemory;
 import es.upm.miw.web.http.HttpMethod;
 import es.upm.miw.web.http.HttpRequest;
 import es.upm.miw.web.http.HttpResponse;
@@ -23,6 +25,7 @@ public class ApiArchitectureMain {
     public static void main(String[] args) {
         server = new Server();
         request = new HttpRequest();
+        DaoFactory.setFactory(new DaoFactoryMemory());
         request(HttpMethod.POST, "users", "uno:uno@gmail.com");
         request(HttpMethod.POST, "users", "dos:dos@gmail.com");
         request(HttpMethod.POST, "users", "uno:dos@gmail.com");

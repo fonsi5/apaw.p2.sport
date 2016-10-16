@@ -1,26 +1,37 @@
 package es.upm.miw.apiArchitectureSport.controllers;
 
+import java.util.List;
+
+import es.upm.miw.apiArchitectureSport.daos.DaoFactory;
+import es.upm.miw.apiArchitectureSport.entities.User;
 import es.upm.miw.apiArchitectureSport.wrappers.UserListWrapper;
 import es.upm.miw.apiArchitectureSport.wrappers.UserWrapper;
 
 public class UserController {
 
     public void createUser(String nick, String email) {
-        //  DaoFactory.getFactory().getUserDao().create(new User(SportName));
-      }        
+        User user = new User(nick, email);
+        DaoFactory.getFactory().getUserDao().create(user);
+    }
 
-    public UserListWrapper UserList(){
-        UserWrapper uw = new UserWrapper(1, "pepe", "ppe@p.com");
+    public UserListWrapper UserList() {
+
+        List<User> userList = DaoFactory.getFactory().getUserDao().findAll();
         UserListWrapper usw = new UserListWrapper();
-        usw.addUserWrapper(uw);
+
+        for (User user : userList) {
+            usw.addUserWrapper(new UserWrapper(user.getId(), user.getNick(), user.getEmail()));
+        }
         return usw;
     }
 
-    
-    public UserWrapper findUserByNick(String nick){
-        //UserWrapper uw = 
-       return new UserWrapper(1, "pepe", "ppe@p.com");
+    public UserWrapper findUserByNick(String nick) {
+        User userWithNick = DaoFactory.getFactory().getUserDao().findUserByNick(nick);
+        if (userWithNick != null) {
+            return new UserWrapper(userWithNick.getId(), userWithNick.getNick(), userWithNick.getEmail());
+        } else {
+            return null;
+        }
     }
-    
-    
+
 }

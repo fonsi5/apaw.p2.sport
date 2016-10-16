@@ -9,17 +9,17 @@ public class User {
     private int id;
 
     private String nick;
-    
+
     private String email;
-    
+
     private List<Sport> sportList;
-    
+
     private Calendar date;
 
     public User() {
     }
 
-    public User(String nick,String email) {
+    public User(String nick, String email) {
         this.nick = nick;
         this.email = email;
         this.date = Calendar.getInstance();
@@ -31,32 +31,32 @@ public class User {
     }
 
     public void setId(int id) {
-		this.id = id;
-	}
+        this.id = id;
+    }
 
-	public String getNick() {
+    public String getNick() {
         return nick;
     }
 
     public String getEmail() {
         return email;
-    }	
+    }
 
     public List<Sport> getSportSlist() {
         return sportList;
-    }       
-    
-	public Calendar getDate() {
-		return date;
-	}
+    }
 
-	public boolean PracticeSport(String sport){
-	    
-	    for(Sport sportPractie: sportList){
-	       if (sport == sportPractie.getName()) 
-	          return true;
-	    }	    
-	    return false;
-	}
-	
+    public Calendar getDate() {
+        return date;
+    }
+
+    public boolean PracticeSport(String sport) {
+
+        for (Sport sportPractie : sportList) {
+            if (sport == sportPractie.getName())
+                return true;
+        }
+        return false;
+    }
+
 }
