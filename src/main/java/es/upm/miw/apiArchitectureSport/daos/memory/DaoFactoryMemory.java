@@ -1,4 +1,4 @@
-package es.upm.miw.apiArchitectureTheme.daos.memory;
+package es.upm.miw.apiArchitectureSport.daos.memory;
 
 import es.upm.miw.apiArchitectureSport.daos.DaoFactory;
 import es.upm.miw.apiArchitectureSport.daos.SportDao;
