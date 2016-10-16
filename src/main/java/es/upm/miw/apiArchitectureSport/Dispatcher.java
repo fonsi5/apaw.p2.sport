@@ -40,6 +40,11 @@ public class Dispatcher {
         case "sports":
             try {
                 System.out.println("Post New Sport");
+                
+                if(false){
+                    InvalidSportFieldException e = new InvalidSportFieldException();
+                    throw e;
+                }
                 response.setStatus(HttpStatus.CREATED);
             } catch (InvalidSportFieldException e) {
                 responseError(response, e);
@@ -64,9 +69,11 @@ public class Dispatcher {
     }
 
     public void doPut(HttpRequest request, HttpResponse response) {
-        switch (request.getPath()) {
+        
+        switch (request.paths()[0]) {
 
         case "users":
+            System.out.println("paso");
             if ("sport".equals(request.paths()[2])) {
                 try {
                     System.out.println("Put sport on user");
