@@ -1,34 +1,36 @@
 package es.upm.miw.apiArchitectureSport.wrappers;
 
 public class UserWrapper {
-	private int id;
-	private String nick;
-	private String email;
+    private int id;
 
-	public UserWrapper() {
-	}
+    private String nick;
 
-	public UserWrapper(int id, String nick,String email) {
-		this.setId(id);
-		this.setNick(nick);
-		this.setMail(email);
-	}
+    private String email;
 
-	public int getId() {
-		return id;
-	}
+    public UserWrapper() {
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public UserWrapper(int id, String nick, String email) {
+        this.setId(id);
+        this.setNick(nick);
+        this.setMail(email);
+    }
 
-	public String getNick() {
-		return nick;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setNick(String nick) {
-		this.nick = nick;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
 
     public String getMail() {
         return email;
@@ -36,11 +38,14 @@ public class UserWrapper {
 
     public void setMail(String email) {
         this.email = email;
-    }	
-	
-	@Override
-	public String toString() {
-		return "{\"id\":" + id + ",\"name\":\"" + nick+ ",\"email\":\"" + email  + "\"}";
-	}
+    }
+
+    public String toString(boolean justNick) {
+        if (justNick) {
+            return "{\"nick\":\"" + nick + "\"}";
+        } else {
+            return "{\"nick\":\"" + nick + ",\"email\":\"" + email + "\"}";
+        }
+    }
 
 }

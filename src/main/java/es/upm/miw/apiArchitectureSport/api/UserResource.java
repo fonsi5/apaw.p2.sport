@@ -45,5 +45,21 @@ public class UserResource {
         }
     }    
     
+
+    public UserListWrapper findUserBySport(String sport) throws InvalidUserFieldException  {
+        this.validateSport(sport);               
+        return new UserController().findUserBySport(sport);
+        
+    }    
+    
+    private void validateSport(String sport) throws InvalidUserFieldException {
+         if (sport == null || sport.isEmpty()) {
+            throw new InvalidUserFieldException("Deporte");
+        } else if (new SportController().findSportByName(sport) == null) {
+            throw new InvalidUserFieldException("Deporte no encontrado");                
+        }
+    }    
+        
+    
     
 }

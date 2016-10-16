@@ -21,10 +21,10 @@ public class Dispatcher {
     public void doGet(HttpRequest request, HttpResponse response) {
         // **/users
         if ("users".equals(request.getPath())) {
-            response.setBody(userResource.userList().toString());    
+            response.setBody(userResource.userList().toString(false));    
         } else if ("users".equals(request.paths()[0]) && "search".equals(request.paths()[1])) {
             try {
-                System.out.println("Get users play sport");
+                response.setBody(userResource.findUserBySport(request.getParams().get("sport")).toString(true));
             } catch (Exception e) {
                 responseError(response, e);
             }
