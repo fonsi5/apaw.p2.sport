@@ -33,5 +33,12 @@ public class UserController {
             return null;
         }
     }
-
+    
+    public void addSport(String nick,String sportName){
+        User user = DaoFactory.getFactory().getUserDao().findUserByNick(nick);
+        if( !user.PracticeSport(nick) ){
+            user.addSport(DaoFactory.getFactory().getSportDao().findSportByName(sportName));
+        }
+        
+    }
 }

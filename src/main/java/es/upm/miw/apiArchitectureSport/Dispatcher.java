@@ -67,10 +67,11 @@ public class Dispatcher {
         switch (request.paths()[0]) {
 
         case "users":
-            System.out.println("paso");
             if ("sport".equals(request.paths()[2])) {
+                String sportName = request.getBody();
+                String nick = request.paths()[1];
                 try {
-                    System.out.println("Put sport on user");
+                    userResource.addSportToUser(nick, sportName);
                 } catch (Exception e) {
                     responseError(response, e);
                 }

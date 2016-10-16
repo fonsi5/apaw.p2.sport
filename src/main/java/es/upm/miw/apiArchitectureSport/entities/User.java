@@ -51,12 +51,15 @@ public class User {
     }
 
     public boolean PracticeSport(String sport) {
-
         for (Sport sportPractie : sportList) {
             if (sport == sportPractie.getName())
                 return true;
         }
         return false;
+    }
+
+    public void addSport(Sport sport) {
+        this.sportList.add(sport);
     }
 
 }
