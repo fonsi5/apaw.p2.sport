@@ -18,10 +18,10 @@ public class Sport {
     }
 
     public void setId(int id) {
-		this.id = id;
-	}
+        this.id = id;
+    }
 
-	public String getName() {
+    public String getName() {
         return sportName;
     }
 

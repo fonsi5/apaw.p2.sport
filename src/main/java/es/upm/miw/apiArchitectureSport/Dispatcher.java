@@ -21,7 +21,7 @@ public class Dispatcher {
     public void doGet(HttpRequest request, HttpResponse response) {
         // **/users
         if ("users".equals(request.getPath())) {
-            response.setBody(userResource.userList().toString(false));    
+            response.setBody(userResource.userList().toString(false));
         } else if ("users".equals(request.paths()[0]) && "search".equals(request.paths()[1])) {
             try {
                 response.setBody(userResource.findUserBySport(request.getParams().get("sport")).toString(true));
@@ -38,7 +38,7 @@ public class Dispatcher {
         // POST **/sports body="sportName"
         case "sports":
             String SportName = request.getBody();
-            try {                
+            try {
                 sportResource.createSport(SportName);
                 response.setStatus(HttpStatus.CREATED);
             } catch (InvalidSportFieldException e) {
@@ -50,7 +50,7 @@ public class Dispatcher {
             String nick = request.getBody().split(":")[0];
             String email = request.getBody().split(":")[1];
             try {
-                userResource.createUser(nick,email);
+                userResource.createUser(nick, email);
                 response.setStatus(HttpStatus.CREATED);
             } catch (Exception e) {
                 responseError(response, e);
@@ -63,7 +63,7 @@ public class Dispatcher {
     }
 
     public void doPut(HttpRequest request, HttpResponse response) {
-        
+
         switch (request.paths()[0]) {
 
         case "users":

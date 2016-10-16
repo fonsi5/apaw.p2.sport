@@ -44,7 +44,7 @@ public class UserWrapper {
         if (justNick) {
             return "{\"nick\":\"" + nick + "\"}";
         } else {
-            return "{\"nick\":\"" + nick + ",\"email\":\"" + email + "\"}";
+            return "{\"nick\":\"" + nick + "\",\"email\":\"" + email + "\"}";
         }
     }
 

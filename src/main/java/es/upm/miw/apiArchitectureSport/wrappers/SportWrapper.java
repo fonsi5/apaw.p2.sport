@@ -1,36 +1,37 @@
 package es.upm.miw.apiArchitectureSport.wrappers;
 
 public class SportWrapper {
-	private int id;
-	private String nombre;
+    private int id;
 
-	public SportWrapper() {
-	}
+    private String nombre;
 
-	public SportWrapper(int id, String nombre) {
-		this.setId(id);
-		this.setNombre(nombre);
-	}
+    public SportWrapper() {
+    }
 
-	public int getId() {
-		return id;
-	}
+    public SportWrapper(int id, String nombre) {
+        this.setId(id);
+        this.setNombre(nombre);
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	@Override
-	public String toString() {
-		return "{\"id\":" + id + ",\"name\":\"" + nombre+ "\"}";
-	}
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "{\"id\":" + id + ",\"name\":\"" + nombre + "\"}";
+    }
 
 }
