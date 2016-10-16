@@ -37,13 +37,9 @@ public class Dispatcher {
         switch (request.getPath()) {
         // POST **/sports body="sportName"
         case "sports":
-            try {
-                System.out.println("Post New Sport");
-                
-                if(false){
-                    InvalidSportFieldException e = new InvalidSportFieldException();
-                    throw e;
-                }
+            String SportName = request.getBody();
+            try {                
+                sportResource.createSport(SportName);
                 response.setStatus(HttpStatus.CREATED);
             } catch (InvalidSportFieldException e) {
                 responseError(response, e);
@@ -54,7 +50,6 @@ public class Dispatcher {
             String nick = request.getBody().split(":")[0];
             String email = request.getBody().split(":")[1];
             try {
-                System.out.println("Post New user");
                 userResource.createUser(nick,email);
                 response.setStatus(HttpStatus.CREATED);
             } catch (Exception e) {
