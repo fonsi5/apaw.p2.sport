@@ -20,11 +20,11 @@ public class UserListWrapper {
 	}
 	
 
-	@Override
-	public String toString() {
+
+	public String toString(boolean justNick) {
 		String result = "{\"userList\":[ ";
 		for (UserWrapper userWrapper : userList) {
-			result += userWrapper.toString() + ",";
+			result += userWrapper.toString(justNick) + ",";
 		}
 		return result.substring(0, result.length() - 1) + "]}";
 	}
