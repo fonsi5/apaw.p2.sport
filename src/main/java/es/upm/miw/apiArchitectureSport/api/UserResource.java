@@ -29,10 +29,10 @@ public class UserResource {
     }
 
     public void addSportToUser(String nick, String sportName) throws InvalidUserFieldException {
-        this.validateFieldNickSport(nick, sportName);                        
-        new UserController().addSport(nick,sportName);        
-    }    
- 
+        this.validateFieldNickSport(nick, sportName);
+        new UserController().addSport(nick, sportName);
+    }
+
     private void validateFieldNickSport(String nick, String sport) throws InvalidUserFieldException {
         if (nick == null || nick.isEmpty()) {
             throw new InvalidUserFieldException("Nick vacio");
@@ -41,25 +41,22 @@ public class UserResource {
         } else if (new UserController().findUserByNick(nick) == null) {
             throw new InvalidUserFieldException("Usuario no encontrado");
         } else if (new SportController().findSportByName(sport) == null) {
-            throw new InvalidUserFieldException("Deporte no encontrado");                
+            throw new InvalidUserFieldException("Deporte no encontrado");
         }
-    }    
-    
+    }
 
-    public UserListWrapper findUserBySport(String sport) throws InvalidUserFieldException  {
-        this.validateSport(sport);               
+    public UserListWrapper findUserBySport(String sport) throws InvalidUserFieldException {
+        this.validateSport(sport);
         return new UserController().findUserBySport(sport);
-        
-    }    
-    
+
+    }
+
     private void validateSport(String sport) throws InvalidUserFieldException {
-         if (sport == null || sport.isEmpty()) {
+        if (sport == null || sport.isEmpty()) {
             throw new InvalidUserFieldException("Deporte");
         } else if (new SportController().findSportByName(sport) == null) {
-            throw new InvalidUserFieldException("Deporte no encontrado");                
+            throw new InvalidUserFieldException("Deporte no encontrado");
         }
-    }    
-        
-    
-    
+    }
+
 }
