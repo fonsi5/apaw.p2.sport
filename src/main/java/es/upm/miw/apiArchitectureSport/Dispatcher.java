@@ -55,7 +55,7 @@ public class Dispatcher {
             String email = request.getBody().split(":")[1];
             try {
                 System.out.println("Post New user");
-                // userResource.createUser();
+                userResource.createUser(nick,email);
                 response.setStatus(HttpStatus.CREATED);
             } catch (Exception e) {
                 responseError(response, e);
