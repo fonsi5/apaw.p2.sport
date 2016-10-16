@@ -21,8 +21,7 @@ public class Dispatcher {
     public void doGet(HttpRequest request, HttpResponse response) {
         // **/users
         if ("users".equals(request.getPath())) {
-            System.out.println("Get users");
-            // **/users/search?sport=*
+            response.setBody(userResource.userList().toString());    
         } else if ("users".equals(request.paths()[0]) && "search".equals(request.paths()[1])) {
             try {
                 System.out.println("Get users play sport");
